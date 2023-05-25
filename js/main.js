@@ -2,6 +2,7 @@
 var result = document.getElementById('result');
 var array = [];
 var btnAll = document.querySelectorAll('button:not(.no-overlay)');
+var arrayText = document.getElementById("arrayTxt");
 //SHOW BUTTON OVERLAY WHILE HOVERING
 btnAll.forEach((button, index) => {
     button.setAttribute('data-number', 'BT' + (index + 1));
@@ -15,7 +16,7 @@ document.getElementById('arrayBtn').onclick = function () {
         return;
     } else {
         array.push(inputNum);
-        document.getElementById("arrayTxt").placeholder = array.join(", ");
+        arrayText.placeholder = array.join(", ");
         //clear input field after submit
         document.getElementById('inputNum').value = "";
     }
@@ -23,7 +24,7 @@ document.getElementById('arrayBtn').onclick = function () {
 //RESET BUTTON
 document.getElementById('resetBtn').onclick = function () {
     array = [];
-    document.getElementById("arrayTxt").placeholder = array;
+    arrayText.placeholder = array;
 }
 // CHECK EMPTY ARRAY
 function emptyArray() {
@@ -107,6 +108,36 @@ document.getElementById('swapBtn').onclick = function () {
     var originalIndex1 = array[index1 - 1];
     array[index1 - 1] = array[index2 - 1];
     array[index2 - 1] = originalIndex1;
-    document.getElementById("arrayTxt").placeholder = array.join(", ");
+    arrayText.placeholder = array.join(", ");
     result.innerHTML = 'HOÁN ĐỔI VỊ TRÍ THỨ ' + index1 + ' VỚI VỊ TRÍ THỨ ' + index2;
+}
+//BT7
+document.getElementById('sortBtn').onclick = function () {
+    if (emptyArray()) return;
+    for (var i = 1; i < array.length; i++) {
+        var j = i;
+        while (j > 0 && array[j] < array[j - 1]) {
+            [array[j], array[j - 1]] = [array[j - 1], array[j]];
+            j--
+        }
+    }
+    arrayText.placeholder = array.join(", ");
+    result.innerHTML = 'SẮP XẾP TĂNG DẦN';
+}
+//BT8
+document.getElementById("primeBtn").onclick = function () {
+    for (let i = 0; i < array.length; i++) {
+        let prime = true;
+        for (let j = 2; j <= array[i] / 2; j++) {
+            if (array[i] % j === 0) {
+                prime = false;
+                break;
+            }
+        }
+        if (prime === true && array[i] > 1) {
+            result.innerHTML = "SỐ NGUYÊN TỐ ĐẦU TIÊN LÀ " + array[i];
+            return;
+        }
+    }
+    result.innerHTML = "MẢNG KHÔNG CÓ SỐ NGUYÊN TỐ";
 }
