@@ -92,5 +92,5 @@ button:not(#arrayBtn)::before {
 }
 
 button:not(#arrayBtn):hover::before {
-    opacity: 1;
+    opacity: .95;
 }

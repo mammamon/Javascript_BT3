@@ -23,9 +23,7 @@ document.getElementById('arrayBtn').onclick = function () {
 document.getElementById('sumEvenBtn').onclick = function () {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) {
-            sum += array[i];
-        }
+        if (array[i] % 2 === 0) sum += array[i];
     }
     result.innerHTML = 'TỔNG CÁC SỐ DƯƠNG LÀ: ' + sum;
 }
@@ -33,11 +31,25 @@ document.getElementById('sumEvenBtn').onclick = function () {
 document.getElementById('countEvenBtn').onclick = function () {
     var count = 0;
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) {
-            count++;
-        }
+        if (array[i] % 2 === 0) count++;
     }
     result.innerHTML = 'CÓ TẤT CẢ ' + count + " SỐ DƯƠNG";
+}
+//BT3
+document.getElementById('minNumBtn').onclick = function () {
+    var min = array[0];
+    for (var i = 0; i < array.length; i++) {
+        if (min > array[i]) min = array[i];
+    }
+    result.innerHTML = 'SỐ NHỎ NHẤT LÀ ' + min;
+}
+//BT4
+document.getElementById('minEvenNumBtn').onclick = function () {
+    var minEven = array[0];
+    for (var i = 0; i < array.length; i++) {
+        if (minEven > array[i] && array[i] % 2 === 0) minEven = array[i];
+    }
+    result.innerHTML = 'SỐ DƯƠNG NHỎ NHẤT LÀ ' + minEven;
 }
 
 
