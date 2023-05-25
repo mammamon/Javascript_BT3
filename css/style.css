@@ -75,7 +75,7 @@ button {
     position: relative;
 }
 
-button:not(#arrayBtn)::before {
+button:not(.no-overlay)::before {
     content: attr(data-number);
     position: absolute;
     font-size: 20px;
@@ -91,6 +91,6 @@ button:not(#arrayBtn)::before {
     transition: 0.2s;
 }
 
-button:not(#arrayBtn):hover::before {
-    opacity: .95;
+button:not(.no-overlay):hover::before {
+    opacity: 1;
 }

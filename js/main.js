@@ -1,12 +1,18 @@
 //GLOBAL SCOPE
 var result = document.getElementById('result');
 var array = [];
-var btnAll = document.querySelectorAll('button:not(#arrayBtn)');
-//SHOWING EACH BUTTON NUMBER WHILE HOVERING
+var btnAll = document.querySelectorAll('button:not(.no-overlay)');
+//SHOW BUTTON OVERLAY WHILE HOVERING + ALERT WHEN ARRAY EMPTY
 btnAll.forEach((button, index) => {
     button.setAttribute('data-number', 'BT' + (index + 1));
-});
-//ADD NUMBER TO ARRAY BY USER INPUT 
+    button.addEventListener('click', () => {
+        if (array.length === 0) {
+            alert('CHƯA NHẬP SỐ')
+        }
+    })
+}
+);
+//ADD NUMBER BUTTON
 document.getElementById('arrayBtn').onclick = function () {
     var inputNum = parseFloat(document.getElementById("inputNum").value);
     if (isNaN(inputNum)) {
@@ -19,11 +25,16 @@ document.getElementById('arrayBtn').onclick = function () {
         document.getElementById('inputNum').value = "";
     }
 }
+//RESET BUTTON
+document.getElementById('resetBtn').onclick = function () {
+    array = [];
+    document.getElementById("arrayTxt").placeholder = array;
+}
 //BT1
 document.getElementById('sumEvenBtn').onclick = function () {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) sum += array[i];
+        if (array[i] > 0) sum += array[i];
     }
     result.innerHTML = 'TỔNG CÁC SỐ DƯƠNG LÀ: ' + sum;
 }
@@ -31,12 +42,12 @@ document.getElementById('sumEvenBtn').onclick = function () {
 document.getElementById('countEvenBtn').onclick = function () {
     var count = 0;
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) count++;
+        if (array[i] > 0) count++;
     }
     result.innerHTML = 'CÓ TẤT CẢ ' + count + " SỐ DƯƠNG";
 }
 //BT3
-document.getElementById('minNumBtn').onclick = function () {
+document.getElementById('minBtn').onclick = function () {
     var min = array[0];
     for (var i = 0; i < array.length; i++) {
         if (min > array[i]) min = array[i];
@@ -44,14 +55,26 @@ document.getElementById('minNumBtn').onclick = function () {
     result.innerHTML = 'SỐ NHỎ NHẤT LÀ ' + min;
 }
 //BT4
-document.getElementById('minEvenNumBtn').onclick = function () {
-    var minEven = array[0];
+document.getElementById('minPositiveBtn').onclick = function () {
+    var minPositive = null;
     for (var i = 0; i < array.length; i++) {
-        if (minEven > array[i] && array[i] % 2 === 0) minEven = array[i];
+        if (array[i] > 0 && (minPositive === null || array[i] < minPositive)) {
+            minPositive = array[i];
+            result.innerHTML = "SỐ DƯƠNG NHỎ NHẤT LÀ " + minPositive;
+        }
+        if (minPositive === null) {
+            result.innerHTML = "MẢNG KHÔNG CÓ SỐ DƯƠNG";
+        }
     }
-    result.innerHTML = 'SỐ DƯƠNG NHỎ NHẤT LÀ ' + minEven;
 }
 
-
-
-
+//BT5
+document.getElementById('lastEvenBtn').onclick = function () {
+    var lastEven = -1;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            lastEven = array[i];
+            result.innerHTML = 'SỐ CHẴN CUỐI CÙNG LÀ ' + lastEven;
+        } else { result.innerHTML = lastEven }
+    }
+}
