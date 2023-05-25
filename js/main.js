@@ -101,7 +101,7 @@ document.getElementById('btn-modal').onclick = function () {
 document.getElementById('swapBtn').onclick = function () {
     var index1 = +document.getElementById('index1').value;
     var index2 = +document.getElementById('index2').value;
-    if (index1 > array.length || index2 > array.length) {
+    if (index1 > array.length || index2 > array.length || index1 === 0 || index2 === 0) {
         result.innerHTML = "VỊ TRÍ NHẬP KHÔNG HỢP LỆ"
         return;
     }
@@ -140,4 +140,27 @@ document.getElementById("primeBtn").onclick = function () {
         }
     }
     result.innerHTML = "MẢNG KHÔNG CÓ SỐ NGUYÊN TỐ";
+}
+//BT9
+document.getElementById("integerBtn").onclick = function () {
+    var count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (Number.isInteger(array[i])) {
+            count++;
+        }
+    }
+    result.innerHTML = 'CÓ TẤT CẢ ' + count + " SỐ NGUYÊN";
+}
+//BT10
+document.getElementById("compareBtn").onclick = function () {
+    if (emptyArray()) return;
+    var countPlus = 0;
+    var countMinus = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] >= 0) countPlus++
+        else countMinus++
+    }
+    if (countPlus > countMinus) return result.innerHTML = 'SỐ DƯƠNG NHIỀU HƠN SỐ ÂM';
+    else if (countPlus < countMinus) return result.innerHTML = 'SỐ ÂM NHIỀU HƠN SỐ DƯƠNG';
+    else return result.innerHTML = 'SỐ DƯƠNG BẰNG SỐ ÂM';
 }
