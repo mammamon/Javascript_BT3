@@ -99,17 +99,17 @@ document.getElementById('btn-modal').onclick = function () {
 }
 //BT6
 document.getElementById('swapBtn').onclick = function () {
-    var index1 = +document.getElementById('index1').value;
-    var index2 = +document.getElementById('index2').value;
-    if (index1 > array.length || index2 > array.length || index1 === 0 || index2 === 0) {
+    var position1 = +document.getElementById('position1').value;
+    var position2 = +document.getElementById('position2').value;
+    if (position1 > array.length || position2 > array.length || position1 === 0 || position2 === 0) {
         result.innerHTML = "VỊ TRÍ NHẬP KHÔNG HỢP LỆ"
         return;
     }
-    var originalIndex1 = array[index1 - 1];
-    array[index1 - 1] = array[index2 - 1];
-    array[index2 - 1] = originalIndex1;
+    var originalPos1 = array[position1 - 1];
+    array[position1 - 1] = array[position2 - 1];
+    array[position2 - 1] = originalPos1;
     arrayText.placeholder = array.join(", ");
-    result.innerHTML = 'HOÁN ĐỔI VỊ TRÍ THỨ ' + index1 + ' VỚI VỊ TRÍ THỨ ' + index2;
+    result.innerHTML = 'HOÁN ĐỔI VỊ TRÍ THỨ ' + position1 + ' VỚI VỊ TRÍ THỨ ' + position2;
 }
 //BT7
 document.getElementById('sortBtn').onclick = function () {
@@ -126,25 +126,34 @@ document.getElementById('sortBtn').onclick = function () {
 }
 //BT8
 document.getElementById("primeBtn").onclick = function () {
-    for (let i = 0; i < array.length; i++) {
-        let prime = true;
-        for (let j = 2; j <= array[i] / 2; j++) {
-            if (array[i] % j === 0) {
-                prime = false;
-                break;
+    var firstPrime = null;
+    for (var i = 0; i < array.length; i++) {
+        var prime = true;
+        if (array[i] <= 1 || !Number.isInteger(array[i]) || array.length === 0) {
+            prime = false;
+        } else {
+            for (var j = 2; j * j <= array[i]; j++) {
+                if (array[i] % j === 0) {
+                    prime = false;
+                    break;
+                }
             }
         }
-        if (prime === true && array[i] > 1) {
-            result.innerHTML = "SỐ NGUYÊN TỐ ĐẦU TIÊN LÀ " + array[i];
-            return;
+        if (prime === true) {
+            firstPrime = array[i];
+            break;
         }
     }
-    result.innerHTML = "MẢNG KHÔNG CÓ SỐ NGUYÊN TỐ";
-}
+    if (firstPrime === null) {
+        result.innerHTML = "MẢNG KHÔNG CÓ SỐ NGUYÊN TỐ";
+    } else {
+        result.innerHTML = "SỐ NGUYÊN TỐ ĐẦU TIÊN LÀ " + firstPrime;
+    }
+};
 //BT9
 document.getElementById("integerBtn").onclick = function () {
     var count = 0;
-    for (let i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
         if (Number.isInteger(array[i])) {
             count++;
         }
@@ -157,8 +166,8 @@ document.getElementById("compareBtn").onclick = function () {
     var countPlus = 0;
     var countMinus = 0;
     for (var i = 0; i < array.length; i++) {
-        if (array[i] >= 0) countPlus++
-        else countMinus++
+        if (array[i] > 0) countPlus++;
+        if (array[i] < 0) countMinus++;
     }
     if (countPlus > countMinus) return result.innerHTML = 'SỐ DƯƠNG NHIỀU HƠN SỐ ÂM';
     else if (countPlus < countMinus) return result.innerHTML = 'SỐ ÂM NHIỀU HƠN SỐ DƯƠNG';

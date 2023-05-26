@@ -1,0 +1,218 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 1: TÍNH TỔNG CÁC SỐ DƯƠNG TRONG MẢNG       					    *	 
+*											            *	
+*	INPUT: 	ELEMENTS OF THE ARRAY					    			    *	
+*											            *
+*	PROCESS:										    *
+*	-------------------------------------------------					    *
+*	STEP1: SUM = 0										    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*	          IF ARRAY[I] > 0 THEN 								    *	
+*		  SUM = SUM + ARRAY[I]								    *
+* 	       ENDFOR									    	    *
+*	-------------------------------------------------					    *	
+*												    *	
+*	OUTPUT: SUM OF ALL POSITIVE NUMBERS = SUM					    	    *	
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 2: ĐẾM TẤT CẢ SỐ DƯƠNG TRONG MẢNG            					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:										    *
+*	-----------------------------------------------------------				    *
+*	STEP1: COUNT = 0									    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*		  IF ARRAY[I] > 0 THEN 								    *	
+*		  COUNT = COUNT + 1					    			    *
+* 	       ENDFOR									    	    *
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: THE NUMBER OF POSITIVE NUMBERS = COUNT						    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 3: TÌM SỐ NHỎ NHẤT TRONG MẢNG            					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:										    *
+*	-----------------------------------------------------------				    *
+*	STEP1: MIN = ARRAY[0]									    *
+*	STEP2: FOR I = 0 T0 ARRAY.LENGTH-1							    *
+*		  IF MIN > ARRAY[I] THEN 						 	    *		
+*		  MIN = ARRAY[I]								    *
+* 	       ENDFOR									    	    *
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: THE SMALLEST NUMBER = MIN							    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 4: TÌM SỐ DƯƠNG NHỎ NHẤT TRONG MẢNG           					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:										    *
+*	-----------------------------------------------------------				    *
+*	STEP1: MIN-POSITIVE = NULL								    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*		  IF ARRAY[I] > 0 AND (ARRAY[I] < MIN-POSITIVE OR MIN-POSITIVE = NULL) THEN	    *
+*		  MIN-POSITIVE = ARRAY[I]							    *
+* 	       ENDFOR									    	    * 
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: IF MIN-POSITIVE === NULL 							    *
+*		THEN 							    			    *
+*		    NO POSITIVE NUMBER IN THE ARRAY						    *
+*		ELSE 										    *
+*		    THE SMALLEST POSITIVE NUMBER = MIN-POSITIVE					    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 5: TÌM SỐ CHẴN CUỐI CÙNG TRONG MẢNG          					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:										    *
+*	-----------------------------------------------------------				    *
+*	STEP1: LAST-EVEN = NULL								   	    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*		  IF ARRAY[I] % 2 === 0 THEN							    *    			
+*		  LAST-EVEN = ARRAY[I] 								    *
+* 	       ENDFOR									    	    *
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: IF LAST-EVEN === NULL 							   	    *
+*		THEN							    			    *
+*		    NO EVEN NUMBER IN THE ARRAY						    	    *
+*		ELSE 										    *
+*		    LAST EVEN NUMBER = LAST-EVEN					    	    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 6: HOÁN ĐỔI 2 VỊ TRÍ TRONG MẢNG           					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY, POSITION1, POSITION2					    *		    	    		           
+*											            *
+*	PROCESS:										    *
+*	-----------------------------------------------------------				    *
+*	STEP1: ORIGINAL-POSITION1 = ARRAY[POSITION1 - 1]					    *
+*	STEP2: ARRAY[POSITION1 - 1] = ARRAY[POSITION2 - 1]					    *
+*	STEP3: ARRAY[POSITION2 -1] = ORIGINAL-POSITION1					            *	
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: POSITION1 SWAP WITH POSITION2				    			    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 7: SẮP XẾP MẢNG THEO THỨ TỰ TĂNG DẦN           					    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:						 				    *
+*	-----------------------------------------------------------				    *
+*	STEP1: FOR I = 0 to ARRAY.LENGTH-1							    *
+*		  SET J = I 									    *
+*	STEP2:	  WHILE (J>0) AND (ARRAY[J] < ARRAY[J-1])					    *
+*		     [ARRAY[J], ARRAY[J - 1]] = [ARRAY[J - 1], ARRAY[J]];			    *
+*		     J = J-1									    *
+*		  ENDWHILE									    *	
+*	       ENDFOR									    	    *
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: SORTED ARRAY IN ASCENDING ORDER				    			    *		    	  
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 8: TÌM SỐ NGUYÊN TỐ ĐẦU TIÊN TRONG MẢNG           				    *	 
+*											            *	
+*	INPUT: ELEMENTS OF THE ARRAY							    	    *		           
+*											            *
+*	PROCESS:						 				    *
+*	-----------------------------------------------------------				    *
+*	STEP1: FIRST-PRIME = NULL							    	    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1					   		    *	    
+*		  SET PRIME = TRUE								    *
+*		  IF ARRAY[I] <=1 OR ARRAY[I] IS NOT INTEGER, THEN       			    *			    
+*		     PRIME = FALSE								    *		
+*		  ENDIF										    *		
+*	STEP3: 	  ELSE 										    *
+*		     FOR J = 2 TO ARRAY[I]/J							    *
+*			IF (ARRAY[I] % J === 0) THEN				                    *
+*			   PRIME = FALSE							    *
+*			   BREAK								    *	
+*			ENDIF									    *
+*		     ENDFOR									    *
+*		  ENDELSE									    *	
+*	STEP4:	  IF PRIME === TRUE THEN 							    *
+*		     FIRST-PRIME = ARRAY[I]							    *
+*		     BREAK									    *
+*		  ENDIF   									    *
+*              ENDFOR						    	           		    *	
+*	-----------------------------------------------------------				    *	
+*												    *	
+*	OUTPUT: IF (FIRST-PRIME === NULL)							    *
+*		THEN										    *
+*		    NO PRIME NUMBER IN THE ARRAY						    *
+*		ELSE										    *
+*		    FIRST PRIME NUMBER = FIRST-PRIME						    * 
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 9: ĐẾM SỐ NGUYÊN TRONG MẢNG SỐ THỰC       					    *	 
+*											            *	
+*	INPUT: 	ELEMENTS OF THE ARRAY					    			    *	
+*											            *
+*	PROCESS:										    *
+*	-------------------------------------------------					    *
+*	STEP1: COUNT = 0									    *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*	          IF ARRAY[I] IS INTEGER THEN 							    *	
+*		     COUNT = COUNT + 1							            * 
+* 	       ENDFOR									    	    *
+*	-------------------------------------------------					    *	
+*												    *	
+*	OUTPUT: THE NUMBER OF INTEGER NUMBERS = COUNT					    	    *	
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*	BÀI TẬP 10: SO SÁNH SỐ ÂM VÀ DƯƠNG     					                    *	 
+*											            *	
+*	INPUT: 	ELEMENTS OF THE ARRAY					    			    *	
+*											            *
+*	PROCESS:										    *
+*	-------------------------------------------------					    *
+*	STEP1: COUNT-PLUS = 0; COUNT-MINUS = 0						            *
+*	STEP2: FOR I = 0 TO ARRAY.LENGTH-1							    *
+*	          IF ARRAY[I] > 0 THEN							    	    *	
+*		     COUNT-PLUS = COUNT-PLUS + 1						    *
+*		  IF ARRAY[I] < 0 THEN								    *
+*		     COUNT-MINUS = COUNT-MINUS + 1						    *
+*	       ENDFOR						    				    *  									    	    	    *
+*	-------------------------------------------------					    *	
+*												    *	
+*	OUTPUT: IF (COUNT-PLUS > COUNT-MINUS) THEN POSITIVE NUMS > NEGATIVE NUMS                    *
+*		IF (COUNT-PLUS < COUNT-MINUS) THEN NEGATIVE NUMS > POSITIVE NUMS                    *
+*	 	IF (COUNT-PLUS = COUNT-MINUS) THEN POSITIVE NUMS = NEGATIVE NUMS                    *	
+*												    *	
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
