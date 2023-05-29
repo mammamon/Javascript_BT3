@@ -132,7 +132,7 @@ document.getElementById("primeBtn").onclick = function () {
         if (array[i] <= 1 || !Number.isInteger(array[i]) || array.length === 0) {
             prime = false;
         } else {
-            for (var j = 2; j * j <= array[i]; j++) {
+            for (var j = 2; j < Math.sqrt(array[i]); j++) {
                 if (array[i] % j === 0) {
                     prime = false;
                     break;
